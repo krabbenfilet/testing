@@ -16,11 +16,13 @@ be tricky:
 Finish the test functions below according to their docstrings.
 """
 
+import numpy as np
+import pytest
+
 def test_transposed():
     """Make sure that multiplication of transposed matrices
 
     x × y = (y.T × x.T).T
-
     (where .T means that the matrix is transposed, i.e. flipped
     around the diagonal.)
 
@@ -30,6 +32,7 @@ def test_transposed():
     multiplication.
     """
     ...
+    
 
 def test_size_mismatch():
     """Make sure that ValueError is raised on size mismatch
@@ -38,4 +41,7 @@ def test_size_mismatch():
     of the first matrix is equal to the vertical dimension of the other
     one.
     """
-    ...
+    with pytest.raises(ValueError):
+      a = np.random.random((3,4))
+      b = np.random.random((5,3))
+      c = np.dot(a, b)
