@@ -31,7 +31,11 @@ def test_transposed():
     tranposed matrices gives the same result as the original
     multiplication.
     """
-    ...
+    a = np.random.random((3,4))
+    b = np.random.random((4,3))
+    c = a @ b
+    d = (b.T @ a.T).T
+    assert np.allclose(c, d)
     
 
 def test_size_mismatch():
