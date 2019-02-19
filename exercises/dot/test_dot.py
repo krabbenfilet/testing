@@ -48,4 +48,4 @@ def test_size_mismatch():
     with pytest.raises(ValueError):
       a = np.random.random((3,4))
       b = np.random.random((5,3))
-      c = np.dot(a, b)
+      c = a @ b
